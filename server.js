@@ -9,10 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Routes placeholder
-app.get("/", (req, res) => {
-  res.send("YogiTrack backend is running...");
-});
+app.use(express.static("public"));
 
 // DB connection
 mongoose
