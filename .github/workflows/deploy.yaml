@@ -24,10 +24,10 @@ jobs:
         run: npm test || echo "No tests yet, skipping..."
 
       - name: Deploy to Heroku
-        uses: gonuit/heroku-cli-action@v2.0.0
+        run: |
+          curl https://cli-assets.heroku.com/install.sh | sh 
+        uses: akhileshns/heroku-deploy@v3.14.15
         with:
           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
           heroku_app_name: yogitrack-backend
           heroku_email: ${{ secrets.HEROKU_EMAIL }}
-          usedocker: false
-          justlogin: false
