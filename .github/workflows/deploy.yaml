@@ -5,27 +5,39 @@ on:
     branches: [ main ]
 
 jobs:
-  build-test-deploy:
+  # TODO add ESLint linter
+  # TODO add caching to speed up pipeline
+  build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
-
+          node-version: '24'
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests
-        run: npm test || echo "No tests yet, skipping..."
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '24'
+      - name: Run Tests
+      - run: npm install
+      - run: npm test || echo "No tests yet, skipping..."
 
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
       - name: Install Heroku CLI
         run: curl https://cli-assets.heroku.com/install.sh | sh
-        
+
       - name: Deploy to Heroku
         uses: akhileshns/heroku-deploy@v3.14.15
         with:
