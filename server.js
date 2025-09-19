@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.static("public"));
 
 //routes
-app.use("/api/instructors", instructorRoutes);
+app.use("/api/instructor", instructorRoutes);
 
 // DB connection
 mongoose
