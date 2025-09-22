@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const instructorRoutes = require("./routes/instructorRoutes.cjs")
+const classRoutes = require("./routes/classRoutes.cjs")
 require("dotenv").config();
 
 const app = express();
@@ -14,6 +15,7 @@ app.use(express.static("public"));
 
 //routes
 app.use("/api/instructor", instructorRoutes);
+app.use("/api/class", classRoutes);
 
 // DB connection
 mongoose
