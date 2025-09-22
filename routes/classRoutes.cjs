@@ -4,9 +4,6 @@ const classController = require("../controllers/classController.cjs");
 
 router.post("/add", classController.addClass);
 router.get("/getAllClasses", classController.getAllClasses);
-// router.get("/getNextId", instructorController.getNextId);
-// router.post("/add", instructorController.add);
-// router.get("/getInstructorIds", instructorController.getInstructorIds);
-// router.delete("/deleteInstructor", instructorController.deleteInstructor);
+// TODO delete/modify class
 
 module.exports = router;
