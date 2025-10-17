@@ -1,7 +1,12 @@
 /* ---------- Base & helpers ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; font-family: system-ui, sans-serif; background: #f5f8f8; color: #333; }
-h1, h2 { margin: 0 0 1rem; font-weight: 600; }
+body { 
+  margin: 0; 
+  font-family: system-ui, sans-serif; 
+  background: #F9F6F2; /* Warm cream background */
+  color: #4A3F35; /* Warm dark brown text */
+}
+h1, h2 { margin: 0 0 1rem; font-weight: 600; color: #5D7B6F; /* Sage green for headers */ }
 a { text-decoration: none; }
 
 .text--center { text-align: center; }
@@ -16,74 +21,173 @@ a { text-decoration: none; }
   min-height: 100vh; 
 }
 
+/* Main content area with spacing for pages */
+.main-content {
+  flex: 1;
+  padding: 3rem 2rem;
+  overflow-y: auto;
+}
+
+/* Page title styling */
+.page-title {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #5D7B6F;
+  font-size: 2rem;
+}
+
 /* ---------- Card ---------- */
 .card {
-  background: #fff; padding: 2rem; border-radius: 0.75rem;
-  box-shadow: 0 4px 14px rgba(0,0,0,.06); width: 100%; max-width: 480px;
+  background: #FFFFFF; 
+  padding: 2rem; 
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 14px rgba(93, 123, 111, 0.12); /* Soft sage shadow */
+  width: 100%; 
+  max-width: 480px;
+  border: 1px solid #E8E3DC; /* Subtle warm border */
 }
 .card--wide { max-width: 560px; }
 
 /* ---------- Sidebar ---------- */
 .sidebar {
-  width: 220px; background: #bee6e0; color: #05713d;
-  display: flex; flex-direction: column; gap: 2rem; padding: 2rem 1rem;
+  width: 220px; 
+  background: linear-gradient(180deg, #A8C5A5 0%, #8FBC8F 100%); /* Soft sage gradient */
+  color: #FFFFFF; /* White text for contrast */
+  display: flex; 
+  flex-direction: column; 
+  gap: 2rem; 
+  padding: 2rem 1rem;
+  box-shadow: 2px 0 12px rgba(93, 123, 111, 0.15);
 }
-.logo-wrap { display: flex; align-items: center; gap: .5rem; color: inherit; font-weight: 600; }
-.logo { width: 100x; height: 100px; }
+.logo-wrap { 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  flex-direction: column;
+  gap: .5rem; 
+  color: inherit; 
+  font-weight: 600; 
+}
+.logo { 
+  width: 100%; 
+  height: auto; 
+  max-width: 180px;
+  object-fit: contain;
+}
 .nav { display: flex; flex-direction: column; gap: 1rem; }
-.nav a { color: inherit; padding: .25rem 0; }
-.nav a.active, .nav a:hover { opacity: .8; }
+.nav a { 
+  color: #FFFFFF; 
+  padding: .5rem 0.75rem; 
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+.nav a.active, .nav a:hover { 
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateX(4px);
+}
 
 /* ---------- Form elements ---------- */
-input, textarea {
-  width: 100%; padding: .6rem .75rem; border: 1px solid #ccc;
-  border-radius: .5rem; font-size: 1rem; margin-top: .25rem;
+input, textarea, select {
+  width: 100%; 
+  padding: .6rem .75rem; 
+  border: 2px solid #D4CFC7; /* Warm gray border */
+  border-radius: .5rem; 
+  font-size: 1rem; 
+  margin-top: .25rem;
+  background: #FFFFFF;
+  color: #4A3F35;
+  transition: border-color 0.2s ease;
+}
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #7BA591; /* Sage green focus */
 }
 textarea { resize: vertical; }
 
-label { display: block; font-size: .9rem; margin-bottom: .75rem; }
+label { 
+  display: block; 
+  font-size: .9rem; 
+  margin-bottom: .75rem; 
+  color: #5D7B6F; /* Sage green labels */
+  font-weight: 500;
+}
 
-fieldset { border: 1px solid #ddd; border-radius: .5rem; padding: .75rem 1rem; margin-bottom: 1rem; }
-legend { padding: 0 .25rem; }
+fieldset { 
+  border: 2px solid #E8E3DC; 
+  border-radius: .5rem; 
+  padding: .75rem 1rem; 
+  margin-bottom: 1rem; 
+}
+legend { 
+  padding: 0 .5rem; 
+  color: #5D7B6F;
+  font-weight: 500;
+}
 
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
 /* ---------- Buttons ---------- */
 .btn {
-  display: inline-block; padding: .6rem 1.25rem; border-radius: .5rem;
-  background: #e0e0e0; color: #333; border: none; cursor: pointer; font-size: .95rem;
+  display: inline-block; 
+  padding: .6rem 1.25rem; 
+  border-radius: .5rem;
+  background: #E8E3DC; /* Warm neutral gray */
+  color: #4A3F35; 
+  border: none; 
+  cursor: pointer; 
+  font-size: .95rem;
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
-.btn:hover { background: #d5d5d5; }
-.btn--primary { background: #008080; color: #fff; }
-.btn--primary:hover { background: #006c6c; }
-.btn--danger { background: #c0392b; color: #fff; }
-.btn--danger:hover { background: #992a20; }
+.btn:hover { 
+  background: #D4CFC7;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(93, 123, 111, 0.15);
+}
+.btn--primary { 
+  background: linear-gradient(135deg, #7BA591 0%, #5D7B6F 100%); /* Sage green gradient */
+  color: #FFFFFF; 
+}
+.btn--primary:hover { 
+  background: linear-gradient(135deg, #6A947F 0%, #4C6A5E 100%);
+}
+.btn--danger { 
+  background: #C67B7B; /* Muted terracotta */
+  color: #FFFFFF; 
+}
+.btn--danger:hover { 
+  background: #B56A6A;
+}
 
-.btn-row { display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center; margin-top: 1.5rem; }
+.btn-row { 
+  display: flex; 
+  flex-wrap: wrap; 
+  gap: .75rem; 
+  justify-content: center; 
+  margin-top: 1.5rem; 
+}
 
 /* ---------- Background image for dashboard ---------- */
 /* ---------- Full-page background with faint overlay ---------- */
 .bg--image {
-  position: relative;                     /* ① establish containing block */
-  background: url('../images/YogaClass.jpg') no-repeat center/cover fixed;
+  position: relative;
+  background: url('../images/nature-landscape.jpg') no-repeat center/cover fixed;
 }
 
-/* ② the “veil” */
+/* ② the "veil" */
 .bg--image::before {
   content: "";
   position: absolute;
-  inset: 0;                               /* cover the whole body */
-  background: rgba(255, 255, 255, 0.55);  /* white veil @ 55% opacity */
-  /* Try rgba(0,128,128,.25) for a subtle teal tint instead */
-  pointer-events: none;                   /* don’t block clicks */
+  inset: 0;
+  background: rgba(249, 246, 242, 0.75); /* Warm cream veil */
+  pointer-events: none;
   min-height: 100vh; 
 }
-
 
 .main-bg {
   flex: 1;
   position: relative;
-  background: url('../images/YogaClass.jpg') no-repeat center center fixed;
+  background: url('../images/nature-landscape.jpg') no-repeat center center fixed;
   background-size: cover;
   display: flex;
   justify-content: center;
@@ -95,18 +199,19 @@ legend { padding: 0 .25rem; }
 .welcome-box {
   position: relative;
   z-index: 1;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.92);
   padding: 2.5rem 3rem;
   border-radius: 1rem;
   text-align: center;
   max-width: 480px;
   width: 100%;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 32px rgba(93, 123, 111, 0.2);
+  border: 1px solid rgba(168, 197, 165, 0.3);
 }
 
 /* Background image applied to the layout wrapper */
 .background {
-  background: url('../images/YogaClass.jpg') no-repeat center center fixed;
+  background: url('../images/nature-landscape.jpg') no-repeat center center fixed;
   background-size: cover;
   min-height: 100vh;
   width: 100%;
@@ -117,9 +222,8 @@ legend { padding: 0 .25rem; }
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.4);  /* or use rgba(0, 0, 0, 0.3) for dark tint */
+  background: rgba(249, 246, 242, 0.5); /* Warm cream overlay */
   z-index: 0;
-  
 }
 
 /* Make sure all layout content appears above the overlay */
@@ -144,10 +248,11 @@ select.form-input {
   width: 100%;
   padding: 8px 10px;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  border: 2px solid #D4CFC7;
   border-radius: 4px;
   box-sizing: border-box;
   margin-top: 5px;
+  background: #FFFFFF;
 }
 
 /* Style for select dropdown to match input fields */
@@ -155,15 +260,43 @@ select.form-input {
   font-family: inherit;
   font-size: 1rem;
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 2px solid #D4CFC7;
   border-radius: 6px;
   width: 100%;
-  background-color: #fff;
-  appearance: none;       /* Remove default arrow */
+  background-color: #FFFFFF;
+  appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg"><path d="M1.41.59L6 5.17l4.59-4.58L12 2l-6 6-6-6z" fill="%23333"/></svg>');
+  background-image: url('data:image/svg+xml;charset=US-ASCII,<svg width="12" height="8" viewBox="0 0 12 8" xmlns="http://www.w3.org/2000/svg"><path d="M1.41.59L6 5.17l4.59-4.58L12 2l-6 6-6-6z" fill="%235D7B6F"/></svg>');
   background-repeat: no-repeat;
   background-position: right 0.7rem top 50%;
   background-size: 0.65rem auto;
+}
+
+/* Custom checkbox styling for attendance */
+input[type="checkbox"] {
+  width: auto;
+  margin-right: 8px;
+  accent-color: #7BA591; /* Sage green checkboxes */
+}
+
+/* List styling */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background: #F9F6F2;
+  border-radius: 0.5rem;
+  border-left: 4px solid #A8C5A5; /* Sage green accent */
+  transition: all 0.2s ease;
+}
+
+li:hover {
+  background: #F3EFE8;
+  transform: translateX(4px);
+  box-shadow: 0 2px 8px rgba(93, 123, 111, 0.1);
 }

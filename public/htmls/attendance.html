@@ -21,9 +21,13 @@
     </nav>
   </aside>
 
-  <main class="layout--center">
-    <form class="card" id="attendanceForm">
-      <h2>Record Class Attendance</h2>
+  <main class="main-content">
+    <h2 class="page-title">Record Class Attendance</h2>
+    
+    <div class="flex-row" style="gap: 2rem; display: flex; align-items: flex-start;">
+      <section class="card half" style="flex: 1;">
+        <h3>Check-in Form</h3>
+        <form id="attendanceForm">
 
       <label>Instructor
         <select name="instructorId" id="instructorSelect" required>
@@ -59,16 +63,18 @@
         </div>
       </label>
 
-      <div class="btn-row">
-        <button type="button" id="recordAttendanceBtn" class="btn btn--primary">Record Attendance</button>
-        <button type="button" id="refreshBtn" class="btn">Refresh List</button>
-      </div>
-    </form>
+          <div class="btn-row">
+            <button type="button" id="recordAttendanceBtn" class="btn btn--primary">Record Attendance</button>
+            <button type="button" id="refreshBtn" class="btn">Refresh List</button>
+          </div>
+        </form>
+      </section>
 
-    <section class="card" id="attendanceList">
-      <h3>Recent Attendance Records</h3>
-      <ul id="attendanceRecords"></ul>
-    </section>
+      <section class="card half" style="flex: 1;" id="attendanceList">
+        <h3>Recent Attendance Records</h3>
+        <ul id="attendanceRecords"></ul>
+      </section>
+    </div>
   </main>
 
   <script src="../js/attendance.js"></script>

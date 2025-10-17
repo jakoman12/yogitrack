@@ -21,9 +21,13 @@
     </nav>
   </aside>
 
-  <main class="layout--center">
-    <form class="card" id="packageForm">
-      <h2>Add Package</h2>
+  <main class="main-content">
+    <h2 class="page-title">Manage Packages</h2>
+    
+    <div class="flex-row" style="gap: 2rem; display: flex; align-items: flex-start;">
+      <section class="card half" style="flex: 1;">
+        <h3>Add Package</h3>
+        <form id="packageForm">
 
       <label>Package Name
         <input type="text" name="packageName" required>
@@ -64,16 +68,18 @@
         <input type="number" name="price" step="0.01" required>
       </label>
 
-      <div class="btn-row">
-        <button type="button" id="addPackageBtn" class="btn btn--primary">Add</button>
-        <button type="button" id="refreshBtn" class="btn">Refresh List</button>
-      </div>
-    </form>
+          <div class="btn-row">
+            <button type="button" id="addPackageBtn" class="btn btn--primary">Add</button>
+            <button type="button" id="refreshBtn" class="btn">Refresh List</button>
+          </div>
+        </form>
+      </section>
 
-    <section class="card" id="packageList">
-      <h3>All Packages</h3>
-      <ul id="packages"></ul>
-    </section>
+      <section class="card half" style="flex: 1;" id="packageList">
+        <h3>All Packages</h3>
+        <ul id="packages"></ul>
+      </section>
+    </div>
   </main>
 
   <script src="../js/package.js"></script>

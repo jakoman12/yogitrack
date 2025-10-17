@@ -21,9 +21,13 @@
     </nav>
   </aside>
 
-  <main class="layout--center">
-    <form class="card" id="saleForm">
-      <h2>Record Sale</h2>
+  <main class="main-content">
+    <h2 class="page-title">Record Sale</h2>
+    
+    <div class="flex-row" style="gap: 2rem; display: flex; align-items: flex-start;">
+      <section class="card half" style="flex: 1;">
+        <h3>Record Sale</h3>
+        <form id="saleForm">
 
       <label>Customer
         <select name="customerId" id="customerSelect" required>
@@ -58,16 +62,18 @@
         <input type="date" name="validityEndDate" required>
       </label>
 
-      <div class="btn-row">
-        <button type="button" id="recordSaleBtn" class="btn btn--primary">Record Sale</button>
-        <button type="button" id="refreshBtn" class="btn">Refresh List</button>
-      </div>
-    </form>
+          <div class="btn-row">
+            <button type="button" id="recordSaleBtn" class="btn btn--primary">Record Sale</button>
+            <button type="button" id="refreshBtn" class="btn">Refresh List</button>
+          </div>
+        </form>
+      </section>
 
-    <section class="card" id="saleList">
-      <h3>All Sales</h3>
-      <ul id="sales"></ul>
-    </section>
+      <section class="card half" style="flex: 1;" id="saleList">
+        <h3>All Sales</h3>
+        <ul id="sales"></ul>
+      </section>
+    </div>
   </main>
 
   <script src="../js/sale.js"></script>
