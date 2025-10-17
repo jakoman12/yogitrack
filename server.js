@@ -7,6 +7,7 @@ const classRoutes = require("./routes/classRoutes.cjs")
 const packageRoutes = require("./routes/packageRoutes.cjs")
 const customerRoutes = require("./routes/customerRoutes.cjs")
 const saleRoutes = require("./routes/saleRoutes.cjs")
+const attendanceRoutes = require("./routes/attendanceRoutes.cjs")
 require("dotenv").config();
 
 const app = express();
@@ -22,6 +23,7 @@ app.use("/api/class", classRoutes);
 app.use("/api/package", packageRoutes);
 app.use("/api/customer", customerRoutes);
 app.use("/api/sale", saleRoutes);
+app.use("/api/attendance", attendanceRoutes);
 
 // DB connection
 mongoose
