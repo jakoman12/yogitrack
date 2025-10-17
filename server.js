@@ -5,6 +5,7 @@ const path = require("path");
 const instructorRoutes = require("./routes/instructorRoutes.cjs")
 const classRoutes = require("./routes/classRoutes.cjs")
 const packageRoutes = require("./routes/packageRoutes.cjs")
+const customerRoutes = require("./routes/customerRoutes.cjs")
 require("dotenv").config();
 
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/api/instructor", instructorRoutes);
 app.use("/api/class", classRoutes);
 app.use("/api/package", packageRoutes);
+app.use("/api/customer", customerRoutes);
 
 // DB connection
 mongoose
