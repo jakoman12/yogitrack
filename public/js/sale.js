@@ -61,10 +61,11 @@ async function fetchSales() {
 
     sales.forEach(sale => {
       const li = document.createElement("li");
+      const amountPaid = sale.amountPaid ? sale.amountPaid.toFixed(2) : '0.00';
       li.innerHTML = `
-        <strong>Sale #${sale.saleId}</strong><br>
-        Customer: ${sale.customerId} • Package: ${sale.packageId}<br>
-        Amount: $${sale.amountPaid.toFixed(2)} • Payment: ${sale.modeOfPayment}<br>
+        <strong>Sale #${sale.saleId || 'N/A'}</strong><br>
+        Customer: ${sale.customerId || 'N/A'} • Package: ${sale.packageId || 'N/A'}<br>
+        Amount: $${amountPaid} • Payment: ${sale.modeOfPayment || 'N/A'}<br>
         Validity: ${formatDate(sale.validityStartDate)} → ${formatDate(sale.validityEndDate)}<br>
         Payment Date: ${formatDateTime(sale.paymentDateTime)}
       `;
