@@ -4,7 +4,7 @@ let selectedClass = null;
 
 async function loadInstructors() {
   try {
-    const res = await fetch("/api/instructor/getAll");
+    const res = await fetch("/api/instructor/getInstructorIds");
     instructors = await res.json();
     
     const select = document.getElementById("instructorSelect");
